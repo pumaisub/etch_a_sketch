@@ -1,0 +1,21 @@
+.container{
+    display:grid;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: repeat(size,1fr);
+    width:100vw;
+    height:100vh;
+}
+
+.grid{
+    transition: 0s;
+    transition-delay:99999s;
+}
+
+.grid:hover{
+    background-color: black;  
+    transition-delay:0s;
+}
+
+#grid.transitioned{
+    background-color: black;
+}

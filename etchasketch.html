@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Etch-A-Sketch</title>
+  <link rel="stylesheet" href="etch.css">
+</head>
+<body>  
+    <button onclick="myFunction()">Click to enter size of grid</button>
+    <div class="container" id="container"></div>
+
+
+
+
+
+<script>
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+function myFunction(){
+    var size = prompt("Please enter the number of squares per side(length/width), max 150", "150");
+    if( size >150){
+        size = prompt("Enter a new number smaller than 150", "150");
+    }
+    var grid = [];
+    grid =[];
+    for(i=0;i<(size**2);i++){
+        grid[i] = "grid" + i.toString();
+    }
+
+    const container = document.querySelector('.container');
+    removeAllChildNodes(container);
+    for(i=0; i< grid.length; i++){
+        var div = document.createElement("div");
+        div.className = "grid";
+        div.id = "grid";
+        container.appendChild(div);
+    }
+    document.getElementById('container').style.gridTemplateColumns = 'repeat(' + size.toString() + ',1fr)';
+    document.getElementById('container').style.gridTemplateRows = 'repeat(' + size.toString() + ',1fr)';
+}
+
+
+//    document.querySelector("#grid").addEventListener("mouseover",function() {
+//    this.classList.add("transitioned");
+//    });
+
+
+    
+</script>
+</body>
